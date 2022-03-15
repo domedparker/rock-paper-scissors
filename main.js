@@ -1,9 +1,10 @@
 const choice = ['rock', 'paper', 'scissors'];
-const computerSelection = computerChoice();
+let computerSelection = computerChoice();
 let playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
     while((playerSelection === '') || (playerSelection === null) || ((playerSelection != 'rock') && (playerSelection != 'paper') && (playerSelection != 'scissors'))){
         playerSelection = prompt('Invalid choice, please pick one of the following: Rock, Paper, or Scissors?').toLowerCase();
     }
+
 
 function playRound(playerSelection, computerSelection){
   if (playerSelection === computerSelection) {
@@ -26,5 +27,6 @@ function computerChoice(){
 }
 
 function game(){
-    playRound(playerSelection, computerSelection);
 }
+
+game()
