@@ -27,6 +27,7 @@ function computerChoice(){
 }
 
 function game(){
+    playRound();
 }
 
 game()
