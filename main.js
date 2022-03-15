@@ -1,6 +1,7 @@
 const choice = ['rock', 'paper', 'scissors'];
 
-function playerChoice();
+function playerChoice(){}
 
-function computerChoice();
-return [Math.floor(Math.random() * choices.length)]
+function computerChoice(){
+return choice[Math.floor(Math.random() * choice.length)]
+}
