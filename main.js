@@ -37,24 +37,26 @@ function computerChoice(){
     return choice[Math.floor(Math.random() * choice.length)]
 }
 
+// the function to log the scores of the player and the computer - this avoids repeats in the game function
+
+function logScore(){
+    console.log(`Player Score: ${playerScore}/5 rounds`);
+    console.log(`Computer Score: ${computerScore}/5 rounds`);
+    if (playerScore > computerScore) {
+        console.log("You have beaten the computer!");
+    } else if (computerScore > playerScore) {
+        console.log("You have lost to the computer!");
+    } else if (computerScore == playerScore){
+        console.log("The game is a tie!");
+    }
+}
+
 //the function for a 5-round game that tracks the score and determines a winner at the end
 
 function game(){
         for (let i = 0; i <= 5; i++) {
         if (i == 5) {
-            if (playerScore > computerScore) {
-                console.log(`Player Score: ${playerScore}/5 rounds`);
-                console.log(`Computer Score: ${computerScore}/5 rounds`);
-                console.log("You have beaten the computer!");
-            } else if (computerScore > playerScore) {
-                console.log(`Player Score: ${playerScore}/5 rounds`);
-                console.log(`Computer Score: ${computerScore}/5 rounds`);
-                console.log("You have lost to the computer!");
-            } else if (computerScore == playerScore){
-                console.log(`Player Score: ${playerScore}/5 rounds`);
-                console.log(`Computer Score: ${computerScore}/5 rounds`);
-                console.log("The game is a tie!");
-            }
+            logScore();
         } else {
             playRound();
         }
