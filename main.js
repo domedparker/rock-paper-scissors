@@ -1,18 +1,30 @@
-// determining computer's choice and player's choice as well as their initial scores
+// determines initial scores of player and computer and defines button variables
 
-const choice = ['rock', 'paper', 'scissors'];
+const options = ['rock', 'paper', 'scissors'];
 let playerScore = 0;
 let computerScore = 0;
 
+// the function to determine the player's choice and call the playRound() function
+
+choices.addEventListener('click', function(e){
+    if(!e.target.dataset.choice) return false;
+    playerSelection = (e.target.dataset.choice);
+    playRound();
+})
+
+
+// the function to determine the random computer's choice
+
+function computerChoice(){
+    return options[Math.floor(Math.random() * options.length)]
+}
+
+
 // the function for a single round game
 
-function playRound(playerSelection, computerSelection){
+function playRound(computerSelection){
     
     computerSelection = computerChoice();
-    playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
-    while((playerSelection === '') || (playerSelection === null) || ((playerSelection != 'rock') && (playerSelection != 'paper') && (playerSelection != 'scissors'))){
-        playerSelection = prompt('Invalid choice, please pick one of the following: Rock, Paper, or Scissors?').toLowerCase();
-}
 
   if (playerSelection === computerSelection) {
       alert('It\'s a Tie!')
@@ -29,15 +41,11 @@ function playRound(playerSelection, computerSelection){
         alert(`You lose! ${computerSelection} beats ${playerSelection}!`);
         ++computerScore;
   }
- }
-
-// the function to determine the random computer's choice
-
-function computerChoice(){
-    return choice[Math.floor(Math.random() * choice.length)]
+  console.log(playerSelection);
+  console.log(computerSelection);
 }
 
-// the function to log the scores of the player and the computer - this avoids repeats in the game function
+  // the function to log the scores of the player and the computer - this avoids repeats in the game function
 
 function logScore(){
     console.log(`Player Score: ${playerScore}/5 rounds`);
@@ -50,17 +58,3 @@ function logScore(){
         console.log("The game is a tie!");
     }
 }
-
-//the function for a 5-round game that tracks the score and determines a winner at the end
-
-function game(){
-        for (let i = 0; i <= 5; i++) {
-        if (i == 5) {
-            logScore();
-        } else {
-            playRound();
-        }
-    }
-}
-
-game()
