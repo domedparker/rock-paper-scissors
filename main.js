@@ -8,6 +8,9 @@ const rockButton = document.querySelector('.rock');
 const paperButton = document.querySelector('.paper');
 const scissorsButton = document.querySelector('.scissors');
 const outcomeDiv = document.querySelector('.outcome');
+const scoreboard = document.querySelector('.scoreboard');
+const playerScoreboard = document.querySelector('.playerScoreboard');
+const computerScoreboard = document.querySelector('.computerScoreboard');
 
 
     // the function to determine the random computer's choice
@@ -43,8 +46,14 @@ function playRound(playerSelection, computerSelection){
         ++computerScore;
   }
   if (playerScore == 5 || computerScore == 5){
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorsButton.disabled = true;
     logScore();
   }
+
+  playerScoreboard.textContent = `Player Score: ${playerScore}`;
+  computerScoreboard.textContent = `Computer Score: ${computerScore}`;
 }
 
   // the function to log the scores of the player and the computer - this avoids repeats in the game function
